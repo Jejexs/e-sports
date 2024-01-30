@@ -9,4 +9,5 @@ namespace EScoreMAUI
     internal class Class1
     {
     }
+
 }
