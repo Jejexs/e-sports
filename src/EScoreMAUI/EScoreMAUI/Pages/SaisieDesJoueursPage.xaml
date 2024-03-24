@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Pages.SaisieDesJoueursPage">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Saisie des Joueurs" FontSize="Large" HorizontalOptions="Center" />
+
+            <!-- Formulaire de saisie des joueurs -->
+            <StackLayout Spacing="10">
+                <Entry Placeholder="Nom" x:Name="NomEntry" />
+                <Entry Placeholder="Prenom" x:Name="PrenomEntry" />
+                <Entry Placeholder="Pseudo" x:Name="PseudoEntry" />
+                <Entry Placeholder="Equipe" x:Name="EquipeEntry" />
+
+                <Button Text="Ajouter Joueur" Clicked="OnAjouterJoueurClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

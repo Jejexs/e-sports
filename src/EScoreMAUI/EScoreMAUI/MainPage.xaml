@@ -28,12 +28,23 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            <!-- Bouton pour accéder à l'écran de Saisie des Joueurs -->
+            <Button Text="Saisie des Joueurs" Clicked="OnSaisieDesJoueursClicked" HorizontalOptions="Center" />
+            
+            <!-- Bouton pour accéder à l'écran de Saisie des Parties et Statistiques -->
+            <Button Text="Saisie des Parties et Statistiques" Clicked="OnSaisieDesPartiesClicked" HorizontalOptions="Center" />
+
+            <!-- Bouton pour accéder à l'écran de Consultation du Classement -->
+            <Button Text="Consultation du Classement" Clicked="OnConsultationClassementClicked" HorizontalOptions="Center" />
+            
+            <!-- Bouton pour accéder à l'écran de consultation des Joueurs -->
+            <Button Text="Voir les Joueurs" Clicked="OnVoirLesJoueursClicked" HorizontalOptions="Center" />
+            
+            <!-- Bouton pour accéder à l'écran de consultation des Equipes -->
+            <Button Text="Voir les Equipes" Clicked="OnVoirLesEquipesClicked" HorizontalOptions="Center" />
+            
+            <!-- Bouton pour accéder à l'écran de consultation des Parties -->
+            <Button Text="Voir les Parties" Clicked="OnVoirLesPartiesClicked" HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>

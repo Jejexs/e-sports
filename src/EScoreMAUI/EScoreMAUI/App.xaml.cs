@@ -1,11 +1,20 @@
-﻿namespace EScoreMAUI;
+﻿using EScoreMAUI.Entity;
 
-public partial class App : Application
+namespace EScoreMAUI
 {
-    public App()
+    public partial class App : Application
     {
-        InitializeComponent();
+        // Définissez une liste statique de joueurs accessible dans toute l'application
+        public static List<Joueur> Joueurs { get; } = new List<Joueur>();
 
-        MainPage = new AppShell();
+        // Définissez une liste statique de parties accessible dans toute l'application
+        public static List<Partie> Parties { get; } = new List<Partie>();
+
+        public App()
+        {
+            InitializeComponent();
+
+            MainPage = new AppShell();
+        }
     }
 }

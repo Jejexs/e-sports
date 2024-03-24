@@ -1,5 +1,7 @@
 namespace EScoreMAUI.Entity.Statistiques;
 
+// Entity des Statistiques de l'application où on retrouve les statistiques des joueurs
+
 public class StatistiquesJoueur : Statistiques
 {
     // Dictionnaire stockant les statistiques pour chaque jeu

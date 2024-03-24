@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Pages.ConsultationClassementPage">
+
+    <StackLayout Padding="20">
+        <Label Text="Consultation du Classement" FontSize="Large" HorizontalOptions="Center" />
+
+        <!-- Filtrer par jeu -->
+        <Picker x:Name="JeuPicker" Title="Filtrer par jeu">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>League of Legends</x:String>
+                    <x:String>Valorant</x:String>
+                    <x:String>Counter-Strike: Global Offensive</x:String>
+                    <!-- Ajouter d'autres jeux si nécessaire -->
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <!-- Affichage du classement -->
+        <ListView x:Name="ClassementListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!-- Récupérer le classement des joeurs -->
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Position}" FontSize="Large" />
+                            <Label Text="{Binding Pseudo}" FontSize="Large" />
+                            <Label Text="{Binding Points}" FontSize="Large" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
