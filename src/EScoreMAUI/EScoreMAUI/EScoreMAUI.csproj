@@ -49,13 +49,36 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="Resources\Images\admin.png" />
+      <None Remove="Resources\Images\home.png" />
+      <None Remove="Resources\Images\icon_classement.png" />
+      <None Remove="Resources\Images\user.png" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Classement.xaml.cs">
+      <Compile Update="Views\Classement.xaml.cs">
         <DependentUpon>Classement.xaml</DependentUpon>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Icon\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiXaml Update="Views\AdminPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\HomePage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\UtilisateursPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
     </ItemGroup>
 
 </Project>

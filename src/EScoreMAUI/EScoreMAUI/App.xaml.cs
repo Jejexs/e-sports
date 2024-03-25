@@ -1,11 +1,13 @@
-﻿namespace EScoreMAUI;
+﻿using Microsoft.Maui.Controls;
 
-public partial class App : Application
+namespace EScoreMAUI
 {
-    public App()
+    public partial class App : Application
     {
-        InitializeComponent();
-
-        MainPage = new AppShell();
+        public App()
+        {
+            InitializeComponent();
+            MainPage = new AppShell();
+        }
     }
 }
