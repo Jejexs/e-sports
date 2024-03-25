@@ -1,7 +1,13 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EScoreMAUI.Pages.SaisieDesJoueursPage">
+             x:Class="EScoreMAUI.Pages.SaisieDesJoueursPage"
+             xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels">
+
+    <!-- Ajoutez un espace de noms pour votre ViewModel -->
+
+    <ContentPage.BindingContext>
+        <viewmodels:JoueursViewModel />
+    </ContentPage.BindingContext>
 
     <ScrollView>
         <StackLayout Padding="20">
@@ -12,7 +18,10 @@
                 <Entry Placeholder="Nom" x:Name="NomEntry" />
                 <Entry Placeholder="Prenom" x:Name="PrenomEntry" />
                 <Entry Placeholder="Pseudo" x:Name="PseudoEntry" />
-                <Entry Placeholder="Equipe" x:Name="EquipeEntry" />
+                <!-- Utilisation d'un Picker pour sélectionner l'équipe -->
+                <Picker x:Name="EquipePicker" Title="Equipe"
+                        ItemsSource="{Binding EquipesDisponibles}"
+                        ItemDisplayBinding="{Binding Nom}" />
 
                 <Button Text="Ajouter Joueur" Clicked="OnAjouterJoueurClicked" />
             </StackLayout>

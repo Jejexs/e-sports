@@ -1,36 +1,52 @@
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using EScoreMAUI.Entity;
-using EScoreMAUI.Entity.Statistiques;
+using Microsoft.Maui.Controls;
 
 namespace EScoreMAUI.ViewModels
 {
     public class JoueursViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Joueur> Joueurs { get; set; } = new ObservableCollection<Joueur>();
+        public ObservableCollection<Joueur> Joueurs { get; } = new ObservableCollection<Joueur>();
 
-        public ICommand AjouterJoueurCommand { get; private set; }
-        public ICommand MettreAJourJoueurCommand { get; private set; }
-        public ICommand SupprimerJoueurCommand { get; private set; }
+        private ObservableCollection<Equipe> _equipesDisponibles;
+        public ObservableCollection<Equipe> EquipesDisponibles 
+        {
+            get { return _equipesDisponibles; }
+            set 
+            { 
+                _equipesDisponibles = value; 
+                OnPropertyChanged(nameof(EquipesDisponibles));
+            }
+        }
+
+        public ICommand AjouterJoueurCommand { get; }
+        public ICommand MettreAJourJoueurCommand { get; }
+        public ICommand SupprimerJoueurCommand { get; }
 
         public JoueursViewModel()
         {
             AjouterJoueurCommand = new Command<Joueur>(AjouterJoueur);
             MettreAJourJoueurCommand = new Command<Joueur>(MettreAJourJoueur);
             SupprimerJoueurCommand = new Command<Joueur>(SupprimerJoueur);
+
+            // Charger les équipes disponibles depuis la source de données
+            LoadEquipesDisponibles();
         }
 
         private void AjouterJoueur(Joueur joueur)
         {
             Joueurs.Add(joueur);
+            Console.WriteLine($"Joueur ajouté : {joueur.Nom} {joueur.Prenom} ({joueur.Pseudo})");
             OnPropertyChanged(nameof(Joueurs));
         }
 
         private void MettreAJourJoueur(Joueur joueur)
         {
-            var joueurExistant = Joueurs.FirstOrDefault(j => j.Id == joueur.Id);
+            var joueurExistant = Joueurs.FirstOrDefault(j => j?.Id == joueur?.Id);
             if (joueurExistant != null)
             {
                 joueurExistant.Nom = joueur.Nom;
@@ -42,8 +58,22 @@ namespace EScoreMAUI.ViewModels
 
         private void SupprimerJoueur(Joueur joueur)
         {
-            Joueurs.Remove(joueur);
-            OnPropertyChanged(nameof(Joueurs));
+            if (joueur != null)
+            {
+                int index = Joueurs.IndexOf(joueur);
+                if (index != -1)
+                {
+                    Joueurs.RemoveAt(index);
+                    OnPropertyChanged(nameof(Joueurs));
+                }
+            }
+        }
+
+        // Charger les équipes disponibles depuis la source de données
+        private void LoadEquipesDisponibles()
+        {
+            // Charger la vraie liste des équipes à partir de la classe App
+            EquipesDisponibles = new ObservableCollection<Equipe>(App.Equipes);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

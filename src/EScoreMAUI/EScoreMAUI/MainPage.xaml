@@ -31,6 +31,9 @@
             <!-- Bouton pour accéder à l'écran de Saisie des Joueurs -->
             <Button Text="Saisie des Joueurs" Clicked="OnSaisieDesJoueursClicked" HorizontalOptions="Center" />
             
+            <!-- Bouton pour accéder à l'écran de Saisie des Equipes -->
+            <Button Text="Saisie des Equipes" Clicked="OnSaisieDesEquipesClicked" HorizontalOptions="Center" />
+            
             <!-- Bouton pour accéder à l'écran de Saisie des Parties et Statistiques -->
             <Button Text="Saisie des Parties et Statistiques" Clicked="OnSaisieDesPartiesClicked" HorizontalOptions="Center" />
 

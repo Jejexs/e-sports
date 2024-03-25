@@ -1,0 +1,19 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Pages.EditerEquipePage">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Édition de l'Équipe" FontSize="Large" HorizontalOptions="Center" />
+
+            <!-- Champ de saisie pour modifier le nom de l'équipe -->
+            <Entry Placeholder="Nom de l'équipe" x:Name="NomEquipeEntry" />
+
+            <!-- Bouton pour enregistrer les modifications -->
+            <Button Text="Enregistrer l'équipe" Clicked="OnEnregistrerEquipeClicked" />
+
+            <!-- Bouton pour supprimer l'équipe -->
+            <Button Text="Supprimer l'équipe" Clicked="OnSupprimerEquipeClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -52,4 +52,32 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <MauiXaml Update="Pages\Client\ConsultationClassementPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Pages\Client\ConsultationEquipesPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Pages\Client\ConsultationJoueursPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+      <MauiXaml Update="Pages\Client\ConsultationPartiesPage.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Pages\Client\ConsultationClassementPage.xaml.cs">
+        <DependentUpon>ConsultationClassementPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Pages\Client\ConsultationJoueursPage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Pages\Client\ConsultationPartiesPage.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

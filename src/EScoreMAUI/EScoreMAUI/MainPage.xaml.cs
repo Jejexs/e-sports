@@ -7,6 +7,7 @@ using EScoreMAUI.Entity;
 using EScoreMAUI.Entity.Statistiques;
 using EScoreMAUI;
 using EScoreMAUI.Pages;
+using EScoreMAUI.ViewModels; // Assurez-vous d'importer l'espace de noms contenant EquipesViewModel
 
 namespace EScoreMAUI
 {
@@ -23,6 +24,11 @@ namespace EScoreMAUI
         private async void OnSaisieDesJoueursClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SaisieDesJoueursPage());
+        }
+
+        private async void OnSaisieDesEquipesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SaisieDesEquipesPage());
         }
 
         // Méthode pour gérer le clic sur le bouton de la saisie des parties et statistiques

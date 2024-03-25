@@ -1,0 +1,18 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Pages.SaisieDesEquipesPage">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Saisie d'une Équipe" FontSize="Large" HorizontalOptions="Center" />
+
+            <!-- Formulaire de saisie de l'équipe -->
+            <StackLayout Spacing="10">
+                <Entry Placeholder="Nom de l'équipe" x:Name="NomEquipeEntry" />
+
+                <Button Text="Enregistrer l'équipe" Clicked="OnAjouterEquipeClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

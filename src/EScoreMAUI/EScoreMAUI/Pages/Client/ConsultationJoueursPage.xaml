@@ -1,7 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EScoreMAUI.Pages.ConsultationJoueursPage">
-    
+
     <ContentPage.Content>
         <!-- Contenu de la page de consultation des joueurs -->
         <StackLayout>
@@ -9,7 +9,12 @@
             <ListView x:Name="lstJoueurs" ItemsSource="{Binding Joueurs}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Nom}" Detail="{Binding Prenom}" />
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Label Text="{Binding Nom}" VerticalOptions="Center" />
+                                <!--<Button Text="Editer" Clicked="OnEditerJoueurClicked" CommandParameter="{Binding}" />-->
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
