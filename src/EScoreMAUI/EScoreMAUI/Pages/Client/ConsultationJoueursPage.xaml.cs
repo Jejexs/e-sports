@@ -1,15 +1,13 @@
-using EScoreMAUI.Entity;
 using Microsoft.Maui.Controls;
-using EScoreMAUI.ViewModels;
-using EScoreMAUI.ViewModels;
+using EScoreMAUI.Entity;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace EScoreMAUI.Pages
 {
     public partial class ConsultationJoueursPage : ContentPage
     {
-        // Définir une instance de JoueursViewModel pour le contexte de liaison
-        JoueursViewModel viewModel;
-
         public ConsultationJoueursPage()
         {
             InitializeComponent();
@@ -19,17 +17,27 @@ namespace EScoreMAUI.Pages
         {
             base.OnAppearing();
 
-            // Rafraîchir la source de données de la ListView sur la liste des Equipes
+            // Rafraîchir la source de données de la ListView sur la liste des Joueurs
             RefreshJoueursList();
         }
 
-        // Méthode pour rafraîchir la liste des équipes
+        // Méthode pour rafraîchir la liste des joueurs
         private void RefreshJoueursList()
         {
-            lstJoueurs.ItemsSource = App.Joueurs;
+            // Assurez-vous que la liste des joueurs n'est pas nulle
+            if (App.Joueurs != null)
+            {
+                // Affecter la liste des joueurs à la source de données de la ListView
+                lstJoueurs.ItemsSource = App.Joueurs;
+            }
+            else
+            {
+                // Afficher un message d'erreur si la liste des joueurs est nulle
+                Console.WriteLine("La liste des joueurs est vide ou nulle.");
+            }
         }
-        
-        // Méthode appelée lors du clic sur le bouton "Editer"
+
+        // Gestionnaire d'événements pour le clic sur le bouton "Editer"
         private async void OnEditerJoueurClicked(object sender, EventArgs e)
         {
             // Récupérer le joueur sélectionné à partir du paramètre de commande
@@ -37,8 +45,8 @@ namespace EScoreMAUI.Pages
 
             if (joueur != null)
             {
-                // Naviguer vers la page d'édition du joueur
-                //await Navigation.PushAsync(new EditerJoueurPage(joueur));
+                // Naviguer vers la page d'édition du joueur en passant le joueur en paramètre
+                await Navigation.PushAsync(new EditerJoueurPage(joueur));
             }
         }
     }

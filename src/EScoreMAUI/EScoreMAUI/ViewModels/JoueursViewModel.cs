@@ -1,4 +1,3 @@
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -10,18 +9,10 @@ namespace EScoreMAUI.ViewModels
 {
     public class JoueursViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<Joueur> Joueurs { get; } = new ObservableCollection<Joueur>();
+        public ObservableCollection<Joueur> Joueurs { get;  set;} = App.Joueurs;
 
-        private ObservableCollection<Equipe> _equipesDisponibles;
-        public ObservableCollection<Equipe> EquipesDisponibles 
-        {
-            get { return _equipesDisponibles; }
-            set 
-            { 
-                _equipesDisponibles = value; 
-                OnPropertyChanged(nameof(EquipesDisponibles));
-            }
-        }
+        // Collection des équipes disponibles
+        public ObservableCollection<Equipe> EquipesDisponibles { get; private set; }
 
         public ICommand AjouterJoueurCommand { get; }
         public ICommand MettreAJourJoueurCommand { get; }
@@ -37,10 +28,15 @@ namespace EScoreMAUI.ViewModels
             LoadEquipesDisponibles();
         }
 
-        private void AjouterJoueur(Joueur joueur)
+        public void AjouterJoueur(Joueur joueur)
         {
+            // Vérifiez si la liste des joueurs est null, sinon créez une nouvelle collection
+            if (Joueurs == null)
+            {
+                Joueurs = new ObservableCollection<Joueur>();
+            }
+
             Joueurs.Add(joueur);
-            Console.WriteLine($"Joueur ajouté : {joueur.Nom} {joueur.Prenom} ({joueur.Pseudo})");
             OnPropertyChanged(nameof(Joueurs));
         }
 
@@ -60,12 +56,8 @@ namespace EScoreMAUI.ViewModels
         {
             if (joueur != null)
             {
-                int index = Joueurs.IndexOf(joueur);
-                if (index != -1)
-                {
-                    Joueurs.RemoveAt(index);
-                    OnPropertyChanged(nameof(Joueurs));
-                }
+                Joueurs.Remove(joueur);
+                OnPropertyChanged(nameof(Joueurs));
             }
         }
 
@@ -73,9 +65,11 @@ namespace EScoreMAUI.ViewModels
         private void LoadEquipesDisponibles()
         {
             // Charger la vraie liste des équipes à partir de la classe App
-            EquipesDisponibles = new ObservableCollection<Equipe>(App.Equipes);
+            EquipesDisponibles = App.Equipes;
+            OnPropertyChanged(nameof(EquipesDisponibles));
         }
 
+        // Implémentation de INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)

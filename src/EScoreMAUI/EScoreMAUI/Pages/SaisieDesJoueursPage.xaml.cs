@@ -1,47 +1,56 @@
-using EScoreMAUI.Entity;
-using EScoreMAUI.ViewModels;
 using Microsoft.Maui.Controls;
+using EScoreMAUI.Entity;
 using System;
+using EScoreMAUI.ViewModels;
 
 namespace EScoreMAUI.Pages
 {
     public partial class SaisieDesJoueursPage : ContentPage
     {
-        // Instance du ViewModel des joueurs
-        private readonly JoueursViewModel joueursViewModel;
+        private readonly JoueursViewModel viewModel;
 
         public SaisieDesJoueursPage()
         {
             InitializeComponent();
 
-            // Initialisation du ViewModel des joueurs
-            joueursViewModel = new JoueursViewModel();
+            Console.WriteLine("Initialisation de la page de saisie des joueurs");
 
-            // Définition du contexte de liaison
-            BindingContext = joueursViewModel;
-
-            // Assigner les équipes disponibles au Picker
-            EquipePicker.ItemsSource = joueursViewModel.EquipesDisponibles;
+            viewModel = new JoueursViewModel();
+            this.BindingContext = viewModel;
         }
 
-        // Gestionnaire d'événements pour le clic sur le bouton "Ajouter Joueur"
         private void OnAjouterJoueurClicked(object sender, EventArgs e)
         {
-            // Récupérer les valeurs des champs de saisie
-            string nom = NomEntry.Text;
-            string prenom = PrenomEntry.Text;
-            string pseudo = PseudoEntry.Text;
-            // Récupérer l'équipe sélectionnée dans le Picker
-            Equipe equipe = EquipePicker.SelectedItem as Equipe;
+            Console.WriteLine("Clic sur le bouton Ajouter Joueur");
 
-            // Créer un nouvel objet Joueur avec les valeurs saisies
-            Joueur nouveauJoueur = new Joueur { Nom = nom, Prenom = prenom, Pseudo = pseudo, Equipe = equipe?.Nom };
+            string nomJoueur = NomJoueurEntry.Text;
+            string prenomJoueur = PrenomJoueurEntry.Text;
+            string pseudoJoueur = PseudoJoueurEntry.Text;
+    
+            Equipe equipeJoueur = (Equipe)EquipePicker.SelectedItem;
 
-            // Ajouter le nouveau joueur via le ViewModel
-            joueursViewModel.AjouterJoueurCommand.Execute(nouveauJoueur);
-
-            // Exemple : Afficher un message de succès
-            DisplayAlert("Succès", "Joueur ajouté avec succès", "OK");
+            if (equipeJoueur != null)
+            {
+                Console.WriteLine("Ajout d'un nouveau joueur : " + nomJoueur);
+                
+                Joueur nouveauJoueur = new Joueur
+                {
+                    Nom = nomJoueur,
+                    Prenom = prenomJoueur,
+                    Pseudo = pseudoJoueur,
+                    Equipe = equipeJoueur
+                };
+        
+                viewModel.AjouterJoueurCommand.Execute(nouveauJoueur);
+                Console.WriteLine("Joueur ajouté avec succès : " + nomJoueur);
+                
+                DisplayAlert("Succès", "Joueur ajouté avec succès", "OK");
+            }
+            else
+            {
+                Console.WriteLine("Aucune équipe sélectionnée. Affichage d'une alerte.");
+                DisplayAlert("Erreur", "Veuillez sélectionner une équipe", "OK");
+            }
         }
     }
 }

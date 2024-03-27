@@ -1,30 +1,15 @@
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows.Input;
 using EScoreMAUI.Entity;
-using EScoreMAUI.Entity.Statistiques;
+using Microsoft.Maui.Controls;
 
 namespace EScoreMAUI.ViewModels
 {
     public class EquipesViewModel : INotifyPropertyChanged
     {
-        private Equipe _selectedEquipe;
-
-        public Equipe SelectedEquipe
-        {
-            get => _selectedEquipe;
-            set
-            {
-                if (_selectedEquipe != value)
-                {
-                    _selectedEquipe = value;
-                    OnPropertyChanged(nameof(SelectedEquipe));
-                }
-            }
-        }
-
-        public ObservableCollection<Equipe> Equipes { get; set; } = new ObservableCollection<Equipe>();
+        public ObservableCollection<Equipe> Equipes { get; set; } = App.Equipes;
 
         public ICommand AjouterEquipeCommand { get; private set; }
         public ICommand MettreAJourEquipeCommand { get; private set; }
@@ -32,33 +17,37 @@ namespace EScoreMAUI.ViewModels
 
         public EquipesViewModel()
         {
-            AjouterEquipeCommand = new Command<Equipe>(AjouterEquipe);
+            AjouterEquipeCommand = new Command<string>(AjouterEquipe);
             MettreAJourEquipeCommand = new Command<Equipe>(MettreAJourEquipe);
             SupprimerEquipeCommand = new Command<Equipe>(SupprimerEquipe);
         }
 
-        private void AjouterEquipe(Equipe equipe)
+        private void AjouterEquipe(string nomEquipe)
         {
-            Equipes.Add(equipe);
+            Console.WriteLine("Ajout d'une nouvelle équipe : " + nomEquipe);
+            Equipe nouvelleEquipe = new Equipe { Nom = nomEquipe };
+            Equipes.Add(nouvelleEquipe);
+            Console.WriteLine("Équipe ajoutée : " + nomEquipe);
             OnPropertyChanged(nameof(Equipes));
         }
-
+        
         private void MettreAJourEquipe(Equipe equipe)
         {
-            var equipeExistant = Equipes.FirstOrDefault(j => j.Id == equipe.Id);
+            var equipeExistant = Equipes?.FirstOrDefault(e => e?.Id == equipe?.Id);
             if (equipeExistant != null)
             {
                 equipeExistant.Nom = equipe.Nom;
-                equipeExistant.Joueurs = equipe.Joueurs;
-                equipeExistant.Statistiques = equipe.Statistiques;
                 OnPropertyChanged(nameof(Equipes));
             }
         }
-
+        
         private void SupprimerEquipe(Equipe equipe)
         {
-            Equipes.Remove(equipe);
-            OnPropertyChanged(nameof(Equipes));
+            if (equipe != null)
+            {
+                Equipes.Remove(equipe);
+                OnPropertyChanged(nameof(Equipes));
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -67,6 +56,5 @@ namespace EScoreMAUI.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

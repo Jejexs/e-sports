@@ -15,9 +15,9 @@
 
             <!-- Formulaire de saisie des joueurs -->
             <StackLayout Spacing="10">
-                <Entry Placeholder="Nom" x:Name="NomEntry" />
-                <Entry Placeholder="Prenom" x:Name="PrenomEntry" />
-                <Entry Placeholder="Pseudo" x:Name="PseudoEntry" />
+                <Entry Placeholder="Nom" x:Name="NomJoueurEntry" />
+                <Entry Placeholder="Prenom" x:Name="PrenomJoueurEntry" />
+                <Entry Placeholder="Pseudo" x:Name="PseudoJoueurEntry" />
                 <!-- Utilisation d'un Picker pour sélectionner l'équipe -->
                 <Picker x:Name="EquipePicker" Title="Equipe"
                         ItemsSource="{Binding EquipesDisponibles}"
