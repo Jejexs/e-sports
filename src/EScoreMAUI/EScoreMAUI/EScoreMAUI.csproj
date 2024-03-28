@@ -50,7 +50,6 @@
 
     <ItemGroup>
       <None Remove="Resources\Images\admin.png" />
-      <None Remove="Resources\Images\escore.png" />
       <None Remove="Resources\Images\home.png" />
       <None Remove="Resources\Images\icon_classement.png" />
       <None Remove="Resources\Images\user.png" />

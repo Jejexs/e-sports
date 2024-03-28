@@ -1,26 +1,37 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EScoreMAUI.Views.ConsultationEquipesPage">
+             x:Class="EScoreMAUI.Views.ConsultationEquipesPage"
+             xmlns:vm="clr-namespace:EScoreMAUI.ViewModels">
 
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Consultation des Equipes" FontSize="Large" HorizontalOptions="Center" />
-            <ListView x:Name="lstEquipes" ItemsSource="{Binding Equipes}">
-                <ListView.ItemTemplate>
+
+    <ContentPage.BindingContext>
+        <vm:EquipesViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Liste des Equipes" FontAttributes="Bold" HorizontalOptions="Center" FontSize="24" Margin="0,0,0,20" TextColor="#333"/>
+
+            <CollectionView ItemsSource="{Binding Equipes}" BackgroundColor="Transparent">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="0.75*"/>
-                                    <ColumnDefinition Width="0.25*"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Nom}" VerticalOptions="Center" />
-                                <Button Text="Editer" Grid.Column="1" />
+                        <Frame BackgroundColor="#FFF" Margin="10" Padding="10" CornerRadius="10" MinimumHeightRequest="100">
+                            <Frame.Shadow>
+                                <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
+                            </Frame.Shadow>
+                            <Grid ColumnDefinitions="3*, Auto" RowDefinitions="Auto, Auto" HorizontalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding NomEquipe}" FontSize="Medium" VerticalOptions="Center"/>
+                                <Button Grid.Column="1" Grid.Row="0" Text="Editer" CommandParameter="{Binding}" VerticalOptions="Center" Margin="20,0,0,0"/>
                             </Grid>
-                        </ViewCell>
+                        </Frame>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>

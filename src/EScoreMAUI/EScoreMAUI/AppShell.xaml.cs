@@ -18,24 +18,9 @@ namespace EScoreMAUI
             Routing.RegisterRoute("SaisieDesPartiesPage", typeof(SaisieDesPartiesPage));
             Routing.RegisterRoute("ConsultationEquipesPage", typeof(ConsultationEquipesPage));
             Routing.RegisterRoute("EditerEquipePage", typeof(EditerEquipePage));
-            Routing.RegisterRoute("ConsultationPartiesPage", typeof(ConsultationPartiesPage)); 
-
+            Routing.RegisterRoute("ConsultationPartiesPage", typeof(ConsultationPartiesPage));
         }
 
-        public async Task NavigateToUtilisateursAsync()
-        {
-            await GoToAsync("//utilisateurs");
-        }
-
-        public async Task NavigateToAdminAsync()
-        {
-            await GoToAsync("//admin");
-        }
-
-        private async void OnHomeClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("//home");
-        }
     }
 
 }
