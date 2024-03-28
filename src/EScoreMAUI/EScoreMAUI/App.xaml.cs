@@ -1,11 +1,23 @@
-﻿namespace EScoreMAUI;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using EScoreMAUI.Entity;
+using Microsoft.Maui.Controls;
 
-public partial class App : Application
+namespace EScoreMAUI
 {
-    public App()
+    public partial class App : Application
     {
-        InitializeComponent();
+        public static ObservableCollection<Joueur> Joueurs { get; } = new ObservableCollection<Joueur>();
 
-        MainPage = new AppShell();
+        public static ObservableCollection<Partie> Parties { get; } = new ObservableCollection<Partie>();
+
+        public static ObservableCollection<Equipe> Equipes { get; } = new ObservableCollection<Equipe>();
+
+        public App()
+        {
+            InitializeComponent();
+
+            MainPage = new AppShell();
+        }
     }
 }

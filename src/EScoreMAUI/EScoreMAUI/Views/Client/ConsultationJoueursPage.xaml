@@ -1,0 +1,29 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.ConsultationJoueursPage"
+             xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewmodels:JoueursViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Consultation des Joueurs" FontSize="Large" HorizontalOptions="Center" />
+            <ListView x:Name="lstJoueurs" ItemsSource="{Binding Joueurs}" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Label Text="{Binding Nom}" VerticalOptions="Center" />
+                                <Label Text="{Binding Prenom}" VerticalOptions="Center" />
+                                <Label Text="{Binding Equipe.Nom}" VerticalOptions="Center" />
+                                <Button Text="Editer" Clicked="OnEditerJoueurClicked" CommandParameter="{Binding}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
