@@ -1,6 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EScoreMAUI.Pages.ConsultationJoueursPage"
+             x:Class="EScoreMAUI.Views.ConsultationJoueursPage"
              xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels">
 
     <ContentPage.BindingContext>
@@ -17,7 +17,6 @@
                             <StackLayout Orientation="Horizontal" Padding="10">
                                 <Label Text="{Binding Nom}" VerticalOptions="Center" />
                                 <Label Text="{Binding Prenom}" VerticalOptions="Center" />
-                                <!-- Equipe -->
                                 <Label Text="{Binding Equipe.Nom}" VerticalOptions="Center" />
                                 <Button Text="Editer" Clicked="OnEditerJoueurClicked" CommandParameter="{Binding}" />
                             </StackLayout>

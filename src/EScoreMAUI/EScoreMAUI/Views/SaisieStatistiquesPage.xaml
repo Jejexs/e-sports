@@ -1,0 +1,34 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.SaisieStatistiquesPage"
+             xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewmodels:StatistiquesViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Saisie des statistiques" FontSize="Title" />
+            
+            <Label Text="{Binding Equipe1.Nom}" FontSize="Large" />
+            <Label Text="{Binding Equipe2.Nom}" FontSize="Large" />
+            
+            <Label Text="Équipe gagnante" />
+            <Picker x:Name="PickerEquipeGagnante"
+                    Title="Sélectionner l'équipe gagnante"
+                    ItemsSource="{Binding Equipes}"
+                    ItemDisplayBinding="{Binding Nom}"
+                    SelectedItem="{Binding EquipeGagnante}" />
+            <Label Text="Équipe perdante" />
+
+            <Picker x:Name="PickerEquipePerdante"
+                    Title="Sélectionner l'équipe perdante"
+                    ItemsSource="{Binding Equipes}"
+                    ItemDisplayBinding="{Binding Nom}"
+                    SelectedItem="{Binding EquipePerdante}" />
+                    
+            <Button Text="Enregistrer" Clicked="OnAddStats" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

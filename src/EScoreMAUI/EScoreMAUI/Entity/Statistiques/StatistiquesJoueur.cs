@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 namespace EScoreMAUI.Entity.Statistiques;
 
 // Entity des Statistiques de l'application où on retrouve les statistiques des joueurs

@@ -9,25 +9,6 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World! E Score Entity"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
             <!-- Bouton pour accéder à l'écran de Saisie des Joueurs -->
             <Button Text="Saisie des Joueurs" Clicked="OnSaisieDesJoueursClicked" HorizontalOptions="Center" />
             
@@ -35,8 +16,13 @@
             <Button Text="Saisie des Equipes" Clicked="OnSaisieDesEquipesClicked" HorizontalOptions="Center" />
             
             <!-- Bouton pour accéder à l'écran de Saisie des Parties et Statistiques -->
-            <Button Text="Saisie des Parties et Statistiques" Clicked="OnSaisieDesPartiesClicked" HorizontalOptions="Center" />
-
+            <Button Text="Saisie des Parties" Clicked="OnSaisieDesPartiesClicked" HorizontalOptions="Center" />
+            
+            <!-- Bouton pour accéder à l'écran de Saisie des Statistiques -->
+            <Button Text="Saisie des Statistiques" Clicked="OnViewAdminPartiesClicked" HorizontalOptions="Center" />
+            
+            <Button Text="Gérer les équipes" Clicked="OnViewAdminEquipesClicked" HorizontalOptions="Center" />
+            
             <!-- Bouton pour accéder à l'écran de Consultation du Classement -->
             <Button Text="Consultation du Classement" Clicked="OnConsultationClassementClicked" HorizontalOptions="Center" />
             

@@ -1,9 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EScoreMAUI.Pages.SaisieDesJoueursPage"
+             x:Class="EScoreMAUI.Views.SaisieDesJoueursPage"
              xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels">
 
-    <!-- Ajoutez un espace de noms pour votre ViewModel -->
 
     <ContentPage.BindingContext>
         <viewmodels:JoueursViewModel />
@@ -13,7 +12,6 @@
         <StackLayout Padding="20">
             <Label Text="Saisie des Joueurs" FontSize="Large" HorizontalOptions="Center" />
 
-            <!-- Formulaire de saisie des joueurs -->
             <StackLayout Spacing="10">
                 <Entry Placeholder="Nom" x:Name="NomJoueurEntry" />
                 <Entry Placeholder="Prenom" x:Name="PrenomJoueurEntry" />

@@ -36,10 +36,10 @@ namespace EScoreMAUI.ViewModels
                 Joueurs = new ObservableCollection<Joueur>();
             }
 
+            joueur.Id = IdGenerator.GenerateJoueurId();
             Joueurs.Add(joueur);
             OnPropertyChanged(nameof(Joueurs));
         }
-
         private void MettreAJourJoueur(Joueur joueur)
         {
             var joueurExistant = Joueurs.FirstOrDefault(j => j?.Id == joueur?.Id);

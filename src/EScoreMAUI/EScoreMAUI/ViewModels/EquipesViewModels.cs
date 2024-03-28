@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using EScoreMAUI.Entity;
 using Microsoft.Maui.Controls;
@@ -25,7 +26,7 @@ namespace EScoreMAUI.ViewModels
         private void AjouterEquipe(string nomEquipe)
         {
             Console.WriteLine("Ajout d'une nouvelle équipe : " + nomEquipe);
-            Equipe nouvelleEquipe = new Equipe { Nom = nomEquipe };
+            Equipe nouvelleEquipe = new Equipe { Id = IdGenerator.GenerateEquipeId(), Nom = nomEquipe };
             Equipes.Add(nouvelleEquipe);
             Console.WriteLine("Équipe ajoutée : " + nomEquipe);
             OnPropertyChanged(nameof(Equipes));

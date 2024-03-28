@@ -2,34 +2,31 @@ using Microsoft.Maui.Controls;
 using System;
 using EScoreMAUI.Entity;
 
-namespace EScoreMAUI.Pages
+namespace EScoreMAUI.Views
 {
-    public partial class EditerJoueurPage : ContentPage
+    public partial class EditerEquipePage : ContentPage
     {
-        private Joueur joueur;
+        private Equipe equipe;
 
-        public EditerJoueurPage(Joueur joueur)
+        public EditerEquipePage(Equipe equipe)
         {
             InitializeComponent();
-            this.joueur = joueur;
+            this.equipe = equipe;
 
-            // Afficher le nom de l'équipe dans le champ de saisie
-            NomJoueurEntry.Text = joueur.Nom;
+            NomEquipeEntry.Text = equipe.Nom;
         }
 
-        private async void OnEnregistrerJoueurClicked(object sender, EventArgs e)
+        private async void OnEnregistrerEquipeClicked(object sender, EventArgs e)
         {
-            // Mettre à jour le nom de l'équipe avec la valeur saisie
-            joueur.Nom = NomJoueurEntry.Text;
+            equipe.Nom = NomEquipeEntry.Text;
 
             // Exemple : Afficher un message de succès
             await DisplayAlert("Succès", "Équipe modifiée avec succès", "OK");
 
-            // Naviguer vers la page de consultation des équipes
             await Navigation.PopAsync();
         }
 
-        private async void OnSupprimerJoueurClicked(object sender, EventArgs e)
+        private async void OnSupprimerEquipeClicked(object sender, EventArgs e)
         {
             // Afficher une alerte de confirmation avant de supprimer l'équipe
             bool result = await DisplayAlert("Confirmation", "Êtes-vous sûr de vouloir supprimer cette équipe ?", "Oui", "Non");
@@ -37,7 +34,7 @@ namespace EScoreMAUI.Pages
             if (result)
             {
                 // Supprimer l'équipe de la liste
-                App.Joueurs.Remove(joueur);
+                App.Equipes.Remove(equipe);
 
                 // Exemple : Afficher un message de succès
                 await DisplayAlert("Succès", "Équipe supprimée avec succès", "OK");

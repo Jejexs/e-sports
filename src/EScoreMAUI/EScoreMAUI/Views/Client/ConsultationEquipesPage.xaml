@@ -1,6 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EScoreMAUI.Pages.ConsultationEquipesPage">
+             x:Class="EScoreMAUI.Views.ConsultationEquipesPage">
     
     <ContentPage.Content>
         <!-- Contenu de la page de consultation des Equipes -->
@@ -13,8 +13,6 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Padding="10">
                                 <Label Text="{Binding Nom}" VerticalOptions="Center" />
-                                <!-- Modifiez l'attribut CommandParameter pour passer l'objet Equipe -->
-                                <Button Text="Editer" Clicked="OnEditerEquipeClicked" CommandParameter="{Binding}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

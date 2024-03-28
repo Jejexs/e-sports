@@ -9,7 +9,7 @@ namespace EScoreMAUI
     {
         public static ObservableCollection<Joueur> Joueurs { get; } = new ObservableCollection<Joueur>();
 
-        public static List<Partie> Parties { get; } = new List<Partie>();
+        public static ObservableCollection<Partie> Parties { get; } = new ObservableCollection<Partie>();
 
         public static ObservableCollection<Equipe> Equipes { get; } = new ObservableCollection<Equipe>();
 

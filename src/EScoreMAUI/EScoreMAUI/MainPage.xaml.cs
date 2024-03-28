@@ -6,8 +6,8 @@ using System.Text;
 using EScoreMAUI.Entity;
 using EScoreMAUI.Entity.Statistiques;
 using EScoreMAUI;
-using EScoreMAUI.Pages;
-using EScoreMAUI.ViewModels; // Assurez-vous d'importer l'espace de noms contenant EquipesViewModel
+using EScoreMAUI.Views;
+using EScoreMAUI.ViewModels;
 
 namespace EScoreMAUI
 {
@@ -35,6 +35,17 @@ namespace EScoreMAUI
         private async void OnSaisieDesPartiesClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SaisieDesPartiesPage());
+        }
+        
+        // Méthode pour gérer le clic sur le bouton de d'affichage des parties côté admin
+        private async void OnViewAdminPartiesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AdminViewParties());
+        }
+        
+        private async void OnViewAdminEquipesClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AdminViewEquipes());
         }
 
         // Méthode pour gérer le clic sur le bouton de la consultation du classement

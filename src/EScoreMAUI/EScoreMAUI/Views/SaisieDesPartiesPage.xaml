@@ -1,0 +1,37 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.SaisieDesPartiesPage"
+             xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewmodels:PartiesViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Saisie des Parties et Statistiques" FontSize="Large" HorizontalOptions="Center" />
+
+            <StackLayout Spacing="10">
+                <DatePicker x:Name="DateEntry" MinimumDate="01/01/2022"
+                            MaximumDate="01/01/2025"
+                            Date="{Binding SelectedDate}" />
+                <TimePicker x:Name="TimeEntry" Time="{Binding SelectedTime}" />
+                <Entry Placeholder="Lieu" x:Name="LieuEntry" />
+                <Entry Placeholder="Jeu" x:Name="JeuEntry" />
+                <!-- Premier Picker d'équipe -->
+                <Picker x:Name="EquipePicker1" Title="Equipe 1"
+                        ItemsSource="{Binding EquipesDisponibles}"
+                        ItemDisplayBinding="{Binding Nom}"
+                        SelectedItem="{Binding Equipe1}" />
+                <!-- Deuxième Picker d'équipe -->
+                <Picker x:Name="EquipePicker2" Title="Equipe 2"
+                        ItemsSource="{Binding EquipesDisponibles}"
+                        ItemDisplayBinding="{Binding Nom}"
+                        SelectedItem="{Binding Equipe2}" />
+
+                <Button Text="Enregistrer la partie" Clicked="OnEnregistrerPartieClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

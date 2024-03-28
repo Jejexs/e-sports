@@ -3,7 +3,7 @@ using EScoreMAUI.Entity;
 using System;
 using EScoreMAUI.ViewModels;
 
-namespace EScoreMAUI.Pages
+namespace EScoreMAUI.Views
 {
     public partial class SaisieDesJoueursPage : ContentPage
     {
