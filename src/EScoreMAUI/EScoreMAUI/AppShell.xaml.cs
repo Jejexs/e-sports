@@ -1,4 +1,5 @@
 ﻿using EScoreMAUI.Views;
+using EScoreMAUI.Views.Administrateur.ListeJoueur;
 using Microsoft.Maui.Controls;
 
 namespace EScoreMAUI
@@ -18,7 +19,9 @@ namespace EScoreMAUI
             Routing.RegisterRoute("SaisieDesPartiesPage", typeof(SaisieDesPartiesPage));
             Routing.RegisterRoute("ConsultationEquipesPage", typeof(ConsultationEquipesPage));
             Routing.RegisterRoute("EditerEquipePage", typeof(EditerEquipePage));
-            Routing.RegisterRoute("ConsultationPartiesPage", typeof(ConsultationPartiesPage));
+            Routing.RegisterRoute("ConsultationPartiesPage", typeof(ConsultationPartiesPage)); 
+            Routing.RegisterRoute("ConsultationJoueursPage", typeof(ConsultationJoueursPage)); 
+            Routing.RegisterRoute("EditerJoueurPage", typeof(EditerJoueurPage));
         }
 
     }

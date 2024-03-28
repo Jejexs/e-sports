@@ -34,6 +34,18 @@ namespace EScoreMAUI.Views
             await Shell.Current.GoToAsync("EditerEquipePage");
         }
 
-        
+        private async void ConsultationJoueursPage(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("ConsultationJoueursPage"); 
+        }
+
+        private async void EditerJoueurPage(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("EditerJoueurPage"); 
+        }
+
+
+
+
     }
 }

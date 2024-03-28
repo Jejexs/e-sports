@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.ConsultationJoueursPage"
+             xmlns:vm="clr-namespace:EScoreMAUI.ViewModels"
+             Title="Consultation des Joueurs">
+
+    <ContentPage.BindingContext>
+        <vm:JoueursViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <Label Text="Consultation des Joueurs" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,20"/>
+
+                <CollectionView ItemsSource="{Binding Joueurs}" Margin="0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="#FFF" Margin="10" Padding="10" CornerRadius="10" MinimumHeightRequest="60">
+                                <Frame.Shadow>
+                                    <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
+                                </Frame.Shadow>
+                                <Grid ColumnDefinitions="3*, Auto" RowDefinitions="Auto" HorizontalOptions="FillAndExpand">
+                                    <Label Grid.Column="0" Text="{Binding NomEtPseudo}" FontSize="Medium" VerticalOptions="Center"/>
+                                    <Label Grid.Column="0" Text="{Binding NomEquipe}" FontSize="Medium" VerticalOptions="Center" HorizontalTextAlignment="End"/>
+                                    <Button Grid.Column="1" Text="Editer" CommandParameter="{Binding}" VerticalOptions="Center" Margin="20,0,0,0"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
