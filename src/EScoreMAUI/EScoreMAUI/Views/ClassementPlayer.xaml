@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.ClassementPlayer"
+             Title="Classement des Joueurs"
+             xmlns:vm="clr-namespace:EScoreMAUI.ViewModels">
+
+    <ContentPage.BindingContext>
+        <vm:JoueursViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Classement des Joueurs" FontAttributes="Bold" HorizontalOptions="Center" FontSize="24" Margin="0,0,0,20" TextColor="#333"/>
+
+            <CollectionView ItemsSource="{Binding Joueurs}" BackgroundColor="Transparent">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#FFF" Margin="10" Padding="15" CornerRadius="10">
+                            <Frame.Shadow>
+                                <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
+                            </Frame.Shadow>
+                            <Grid ColumnDefinitions="Auto,*,*,Auto,Auto" RowDefinitions="Auto" HorizontalOptions="FillAndExpand">
+                                <Label Grid.Column="0" Text="{Binding Classement, StringFormat='{0}. '}" FontSize="Medium"/>
+                                <Label Grid.Column="1" Text="{Binding NomEtPseudo}" FontSize="Medium"/>
+                                <Label Grid.Column="2" Text="{Binding NomEquipe}" FontSize="Medium"/>
+                                <Label Grid.Column="3" Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="Medium"/>
+                                <Label Grid.Column="4" Text="{Binding TauxDeVictoire, StringFormat='Victoire: {0}%'}" FontSize="Medium"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+
+
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

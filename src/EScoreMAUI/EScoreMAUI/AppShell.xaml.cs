@@ -11,7 +11,8 @@ namespace EScoreMAUI
             Routing.RegisterRoute("home", typeof(HomePage));
             Routing.RegisterRoute(nameof(UtilisateursPage), typeof(UtilisateursPage));
             Routing.RegisterRoute(nameof(AdminPage), typeof(AdminPage));
-            Routing.RegisterRoute("classement", typeof(Classement));
+            Routing.RegisterRoute("classementTeam", typeof(ClassementTeam));
+            Routing.RegisterRoute("classementPlayer", typeof(ClassementPlayer));
 
         }
 

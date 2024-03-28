@@ -9,9 +9,15 @@ namespace EScoreMAUI.Views
             InitializeComponent();
         }
 
-        private async void OnClassementClickedUtilisateur(object sender, EventArgs e)
+        private async void ClassementPlayer(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("classement");
+            await Shell.Current.GoToAsync("classementPlayer");
         }
+
+        private async void ClassementTeam(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("classementTeam");
+        }
+
     }
 }

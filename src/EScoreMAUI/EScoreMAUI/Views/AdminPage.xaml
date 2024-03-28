@@ -5,7 +5,7 @@
              Title="Admin">
 
     <VerticalStackLayout Spacing="25" Padding="30">
-        <Button Text="Classement" Clicked="OnClassementClickedAdmin" />
+       
 
     </VerticalStackLayout>
 </ContentPage>

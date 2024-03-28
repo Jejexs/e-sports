@@ -8,6 +8,6 @@ namespace EScoreMAUI
         {
             InitializeComponent();
             MainPage = new AppShell();
-        }
+    }
     }
 }

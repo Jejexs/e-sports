@@ -5,6 +5,7 @@
             Title="Admin">
     
     <VerticalStackLayout Spacing="25" Padding="30">
-        <Button Text="Classement" Clicked="OnClassementClickedUtilisateur" />
+        <Button Text="Classement des Joueurs" Clicked="ClassementPlayer" />
+        <Button Text="Classement des Equipes" Clicked="ClassementTeam" />
     </VerticalStackLayout>
 </ContentPage>

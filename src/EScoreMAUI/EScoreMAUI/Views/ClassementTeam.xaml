@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.ClassementTeam"
+             Title="Classement des Equipes"
+             xmlns:vm="clr-namespace:EScoreMAUI.ViewModels">
+
+
+    <ContentPage.BindingContext>
+        <vm:EquipesViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Classement des Équipes" FontAttributes="Bold" HorizontalOptions="Center" FontSize="24" Margin="0,0,0,20" TextColor="#333"/>
+
+            <CollectionView ItemsSource="{Binding Equipes}" BackgroundColor="Transparent">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#FFF" Margin="120,10" Padding="15" CornerRadius="10">
+                            <Frame.Shadow>
+                                <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
+                            </Frame.Shadow>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Classement, StringFormat='{0}. '}" FontSize="Medium"/>
+                                <Label Text="{Binding NomEquipe}" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                                <Label Text="{Binding TauxDeVictoire, StringFormat='Victoire: {0}%'}" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
