@@ -21,7 +21,7 @@
             <!-- Contenu central -->
             <Label Grid.Column="1" Text="Saisie d'une Équipe" Style="{StaticResource TitleStyle}" HorizontalOptions="Center" Grid.Row="0"/>
             <Entry Grid.Column="1" Placeholder="Nom de l'équipe" x:Name="NomEquipeEntry" Style="{StaticResource EntryStyle}" Grid.Row="1" WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=ColumnDefinitions[1].ActualWidth, Converter={StaticResource WidthConverter}, ConverterParameter=0.75}" HorizontalOptions="Center"/>
-            <Button Grid.Column="1" Text="Enregistrer l'équipe" Style="{StaticResource ButtonStyle}" Grid.Row="2" Margin="0,10,0,0" HorizontalOptions="Center"/>
+            <Button Grid.Column="1" Text="Enregistrer l'équipe" Style="{StaticResource ButtonStyle}" Grid.Row="2" Margin="0,10,0,0" HorizontalOptions="Center" />
         </Grid>
     </ScrollView>
 

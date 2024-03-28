@@ -4,17 +4,17 @@
        x:Class="EScoreMAUI.AppShell">
 
     <TabBar>
-        <ShellContent Title="Home"
+        <ShellContent Title="Accueil"
                       Icon="home.png"
                       Route="home"
                       ContentTemplate="{DataTemplate views:HomePage}" />
         <ShellContent Title="Utilisateurs"
-                  Icon="user.png"
-                  Route="utilisateurs"
-                  ContentTemplate="{DataTemplate views:UtilisateursPage}" />
+                      Icon="user.png"
+                      Route="utilisateurs"
+                      ContentTemplate="{DataTemplate views:UtilisateursPage}" />
         <ShellContent Title="Admin"
-                  Icon="admin.png"
-                  Route="admin"
-                  ContentTemplate="{DataTemplate views:AdminPage}" />
+                      Icon="admin.png"
+                      Route="admin"
+                      ContentTemplate="{DataTemplate views:AdminPage}" />
     </TabBar>
 </Shell>

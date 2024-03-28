@@ -1,12 +1,31 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EScoreMAUI.Views.HomePage"
-             Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET azeazeMAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="HomePage"
+             BackgroundColor="#F0F2F5">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Bienvenue sur E-Score, votre destination ultime pour suivre les scores en direct et les dernières actualités de l'e-sport!" FontSize="36" FontAttributes="Bold" Margin="20,20,20,10" 
+                   HorizontalTextAlignment="Center"/>
+
+            <Image Source="escore.png" 
+                   Aspect="AspectFill" 
+                   Margin="40, 10, 40, 20"/>
+
+            <Label Text="Avec notre application facile à utiliser, restez connecté avec l'univers de l'e-sport comme jamais auparavant. Que vous soyez fan de MOBA, FPS, RTS, ou de tout autre genre, nous couvrons une large gamme de compétitions à travers le monde." 
+                   HorizontalTextAlignment="Center" 
+                   Margin="20, 10, 20, 0"/>
+
+            <Label Text="Recevez des mises à jour en temps réel sur les scores, les classements, et bien plus encore. Découvrez les profils des équipes, les statistiques des joueurs, et plongez dans des analyses détaillées pour ne rien manquer de vos jeux et tournois favoris." 
+                   HorizontalTextAlignment="Center" 
+                   Margin="20, 10, 20, 0"/>
+
+            <Label Text="E-score est là pour transformer votre passion pour l'e-sport en une expérience interactive et immersive. Rejoignez notre communauté et faites partie de l'action dès maintenant!" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   HorizontalTextAlignment="Center" 
+                   Margin="50, 10, 50, 0"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
