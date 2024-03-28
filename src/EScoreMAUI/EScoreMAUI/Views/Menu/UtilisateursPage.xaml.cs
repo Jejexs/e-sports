@@ -19,5 +19,10 @@ namespace EScoreMAUI.Views
             await Shell.Current.GoToAsync("classementTeam");
         }
 
+        private async void ConsultationPartiesPage(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("ConsultationPartiesPage");
+        }
+
     }
 }

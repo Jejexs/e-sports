@@ -12,7 +12,13 @@ namespace EScoreMAUI
             Routing.RegisterRoute(nameof(UtilisateursPage), typeof(UtilisateursPage));
             Routing.RegisterRoute(nameof(AdminPage), typeof(AdminPage));
             Routing.RegisterRoute("classementTeam", typeof(ClassementTeam));
-            Routing.RegisterRoute("classementPlayer", typeof(ClassementPlayer));
+            Routing.RegisterRoute("classementPlayer", typeof(ClassementPlayer)); 
+            Routing.RegisterRoute("SaisieDesJoueursPage", typeof(SaisieDesJoueursPage));
+            Routing.RegisterRoute("SaisieDesEquipesPage", typeof(SaisieDesEquipesPage)); 
+            Routing.RegisterRoute("SaisieDesPartiesPage", typeof(SaisieDesPartiesPage));
+            Routing.RegisterRoute("ConsultationEquipesPage", typeof(ConsultationEquipesPage));
+            Routing.RegisterRoute("EditerEquipePage", typeof(EditerEquipePage));
+            Routing.RegisterRoute("ConsultationPartiesPage", typeof(ConsultationPartiesPage)); 
 
         }
 

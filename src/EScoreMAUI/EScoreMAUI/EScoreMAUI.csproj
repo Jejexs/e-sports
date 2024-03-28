@@ -60,10 +60,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Views\ClassementPlayer.xaml.cs">
+      <Compile Update="Views\Utilisateur\ClassementPlayer.xaml.cs">
         <DependentUpon>ClassementPlayer.xaml</DependentUpon>
       </Compile>
-      <Compile Update="Views\ClassementTeam.xaml.cs">
+      <Compile Update="Views\Utilisateur\ClassementTeam.xaml.cs">
         <DependentUpon>ClassementTeam.xaml</DependentUpon>
       </Compile>
     </ItemGroup>
@@ -73,16 +73,34 @@
     </ItemGroup>
 
     <ItemGroup>
-      <MauiXaml Update="Views\AdminPage.xaml">
+      <MauiXaml Update="Views\Administrateur\ListeEquipe\ConsultationEquipesPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
-      <MauiXaml Update="Views\ClassementPlayer.xaml">
+      <MauiXaml Update="Views\Administrateur\ListeEquipe\EditerEquipePage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\Menu\AdminPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\Utilisateur\ClassementPlayer.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
       <MauiXaml Update="Views\HomePage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
-      <MauiXaml Update="Views\UtilisateursPage.xaml">
+      <MauiXaml Update="Views\Administrateur\SaisieDesEquipesPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\Administrateur\SaisieDesJoueursPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\Administrateur\SaisieDesPartiesPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\Menu\UtilisateursPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="Views\Utilisateur\ConsultationPartiesPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>
     </ItemGroup>

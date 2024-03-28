@@ -1,0 +1,34 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.EditerEquipePage">
+
+    <ContentPage.Content>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.125*"/>
+                <ColumnDefinition Width="0.75*"/>
+                <ColumnDefinition Width="0.125*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Text="Édition de l'Équipe" Style="{StaticResource TitleStyle}"
+                   HorizontalOptions="Center" Grid.Row="0"/>
+
+            <Entry Grid.Column="1" Placeholder="Nom de l'équipe" x:Name="NomEquipeEntry" Style="{StaticResource EntryStyle}"
+                   WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=ColumnDefinitions[1].ActualWidth, Converter={StaticResource WidthConverter}, ConverterParameter=0.75}"
+                   HorizontalOptions="Center" Grid.Row="1"/>
+
+            <Button Grid.Column="1" Text="Enregistrer l'équipe" Style="{StaticResource ButtonStyle}"
+                    HorizontalOptions="Center" Grid.Row="2" Margin="0,10,0,0"/>
+
+            <Button Grid.Column="1" Text="Supprimer l'équipe" Style="{StaticResource DeleteButtonStyle}"
+                    HorizontalOptions="Center" Grid.Row="3" Margin="0,10,0,0"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

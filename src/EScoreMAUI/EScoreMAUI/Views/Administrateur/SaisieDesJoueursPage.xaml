@@ -1,0 +1,40 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.SaisieDesJoueursPage"
+             xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels">
+
+
+    <ContentPage.BindingContext>
+        <viewmodels:JoueursViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Text="Saisie des Joueurs" Style="{StaticResource TitleStyle}" Grid.Row="0" HorizontalOptions="Center"/>
+            <Entry Grid.Column="1" Placeholder="Nom" x:Name="NomJoueurEntry" Style="{StaticResource EntryStyle}" Grid.Row="1" WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=ColumnDefinitions[1].ActualWidth, Converter={StaticResource WidthConverter}, ConverterParameter=0.75}" HorizontalOptions="Center"/>
+            <Entry Grid.Column="1" Placeholder="Prenom" x:Name="PrenomJoueurEntry" Style="{StaticResource EntryStyle}" Grid.Row="2" WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=ColumnDefinitions[1].ActualWidth, Converter={StaticResource WidthConverter}, ConverterParameter=0.75}" HorizontalOptions="Center"/>
+            <Entry Grid.Column="1" Placeholder="Pseudo" x:Name="PseudoJoueurEntry" Style="{StaticResource EntryStyle}" Grid.Row="3" WidthRequest="{Binding Source={RelativeSource AncestorType={x:Type Grid}}, Path=ColumnDefinitions[1].ActualWidth, Converter={StaticResource WidthConverter}, ConverterParameter=0.75}" HorizontalOptions="Center"/>
+            <Picker Grid.Column="1" x:Name="EquipePicker" Title="Equipe" ItemsSource="{Binding EquipesDisponibles}" ItemDisplayBinding="{Binding Nom}" Grid.Row="4" HorizontalOptions="Center"/>
+            <Button Grid.Column="1" Text="Ajouter Joueur" Style="{StaticResource ButtonStyle}" Grid.Row="5" Margin="0,10,0,0" HorizontalOptions="Center"/>
+        </Grid>
+    </ScrollView>
+
+
+
+
+</ContentPage>

@@ -5,7 +5,6 @@
              Title="Classement des Equipes"
              xmlns:vm="clr-namespace:EScoreMAUI.ViewModels">
 
-
     <ContentPage.BindingContext>
         <vm:EquipesViewModel />
     </ContentPage.BindingContext>
@@ -17,16 +16,16 @@
             <CollectionView ItemsSource="{Binding Equipes}" BackgroundColor="Transparent">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BackgroundColor="#FFF" Margin="120,10" Padding="15" CornerRadius="10">
+                        <Frame BackgroundColor="#FFF" Margin="10" Padding="15" CornerRadius="10">
                             <Frame.Shadow>
                                 <Shadow Brush="Black" Offset="5,5" Opacity="0.8" Radius="10"/>
                             </Frame.Shadow>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding Classement, StringFormat='{0}. '}" FontSize="Medium"/>
-                                <Label Text="{Binding NomEquipe}" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
-                                <Label Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
-                                <Label Text="{Binding TauxDeVictoire, StringFormat='Victoire: {0}%'}" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
-                            </StackLayout>
+                            <Grid ColumnDefinitions="Auto,*,*,Auto,Auto" RowDefinitions="Auto" HorizontalOptions="FillAndExpand">
+                                <Label Grid.Column="0" Text="{Binding Classement, StringFormat='{0}. '}" FontSize="Medium"/>
+                                <Label Grid.Column="1" Text="{Binding NomEquipe}" FontSize="Medium"/>
+                                <Label Grid.Column="2" Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="Medium"/>
+                                <Label Grid.Column="3" Text="{Binding TauxDeVictoire, StringFormat='Victoire: {0}%'}" FontSize="Medium"/>
+                            </Grid>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

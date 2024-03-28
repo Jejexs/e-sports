@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.AdminPage"
+             Title="Admin">
+
+    <VerticalStackLayout Spacing="25" Padding="30">
+        <Button Text="Saisie des Joueurs" Clicked="SaisieJoueurs" />
+        <Button Text="Saisie des Equipes" Clicked="SaisieEquipes" />
+        <Button Text="Saisie des Parties" Clicked="SaisieDesParties" />
+        <Button Text="Liste et Edition des équipes" Clicked="ConsultationEquipesPage" />
+        <Button Text="Edition des équipes" Clicked="EditerEquipePage" />
+    </VerticalStackLayout>
+</ContentPage>

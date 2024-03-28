@@ -1,0 +1,26 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.ConsultationEquipesPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Consultation des Equipes" FontSize="Large" HorizontalOptions="Center" />
+            <ListView x:Name="lstEquipes" ItemsSource="{Binding Equipes}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.75*"/>
+                                    <ColumnDefinition Width="0.25*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Nom}" VerticalOptions="Center" />
+                                <Button Text="Editer" Grid.Column="1" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
