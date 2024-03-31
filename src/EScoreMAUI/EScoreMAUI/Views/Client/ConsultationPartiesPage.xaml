@@ -3,22 +3,31 @@
              xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels"
              x:Class="EScoreMAUI.Views.ConsultationPartiesPage">
 
+    <!-- Liaison avec le ViewModel -->
     <ContentPage.BindingContext>
         <viewmodels:PartiesViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Consultation des Parties" FontSize="Large" HorizontalOptions="Center" />
+        <StackLayout Padding="20" HorizontalOptions="Center">
+            <Label Text="Consultation des Parties" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold" />
+
             <ListView x:Name="PartiesListView" ItemsSource="{Binding Parties}" HasUnevenRows="True" ItemSelected="ViewStatistiques">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Equipe1.Nom}" FontSize="Large" />
-                                <Label Text="vs" FontSize="Large" />
-                                <Label Text="{Binding Equipe2.Nom}" FontSize="Large" />
-                                <Label Text="{Binding Jeu}" FontSize="Medium" />
+                                <!-- Affichage des noms des équipes -->
+                                <FlexLayout Grid.Row="1" Margin="0,10" Direction="Row" JustifyContent="Center">
+                                    <Label Text="{Binding Equipe1.Nom}" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+                                    <Label Text="vs" FontSize="Large" HorizontalOptions="Center" Margin="10,0" />
+                                    <Label Text="{Binding Equipe2.Nom}" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+                                </FlexLayout>
+
+                                <!-- Affichage de la date, du jeu et du lieu -->
+                                <Label Text="{Binding Date}" FontSize="Medium" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Jeu}" FontSize="Medium" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Lieu}" FontSize="Medium" HorizontalOptions="Center"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

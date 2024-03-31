@@ -1,25 +1,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EScoreMAUI.Views.ConsultationJoueursPage"
-             xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels">
+             xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels"
+             x:Class="EScoreMAUI.Views.ConsultationJoueursPage">
 
+    <!-- Binding avec le ViewModel -->
     <ContentPage.BindingContext>
         <viewmodels:JoueursViewModel />
     </ContentPage.BindingContext>
 
+    <!-- Contenu de la page -->
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Consultation des Joueurs" FontSize="Large" HorizontalOptions="Center" />
-            <ListView x:Name="lstJoueurs" ItemsSource="{Binding Joueurs}" VerticalOptions="FillAndExpand">
+        <StackLayout Padding="20">
+            <!-- Titre de la page -->
+            <Label Text="Consultation des Joueurs" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,20" />
+
+            <!-- Liste des joueurs -->
+            <ListView x:Name="lstJoueurs" ItemsSource="{Binding Joueurs}" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="10">
-                                <Label Text="{Binding Nom}" VerticalOptions="Center" />
-                                <Label Text="{Binding Prenom}" VerticalOptions="Center" />
-                                <Label Text="{Binding Equipe.Nom}" VerticalOptions="Center" />
-                                <Button Text="Editer" Clicked="OnEditerJoueurClicked" CommandParameter="{Binding}" />
-                            </StackLayout>
+                            <Grid Margin="0,0,0,20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Nom}" VerticalOptions="Center" FontSize="Large" />
+                                    <Label Text="{Binding Prenom}" VerticalOptions="Center" FontSize="Large" Margin="10,0,0,0" />
+                                    <Label Text=" - " VerticalOptions="Center" FontSize="Large" Margin="10,0,0,0" />
+                                    <Label Text="{Binding Pseudo}" VerticalOptions="Center" FontSize="Large" Margin="10,0,0,0" />
+                                </StackLayout>
+
+                                <Label Text="{Binding Equipe.Nom}" VerticalOptions="Center" Grid.Column="1" FontSize="Large" />
+                                
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

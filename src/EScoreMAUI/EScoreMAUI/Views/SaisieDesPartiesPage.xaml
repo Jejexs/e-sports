@@ -17,7 +17,20 @@
                             Date="{Binding SelectedDate}" />
                 <TimePicker x:Name="TimeEntry" Time="{Binding SelectedTime}" />
                 <Entry Placeholder="Lieu" x:Name="LieuEntry" />
-                <Entry Placeholder="Jeu" x:Name="JeuEntry" />
+                
+                <!-- Utilisation du Picker JeuPicker -->
+                <Picker x:Name="JeuPicker" Title="Sélectionner un jeu">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>League of Legends</x:String>
+                            <x:String>Valorant</x:String>
+                            <x:String>Counter-Strike: Global Offensive</x:String>
+                            <!-- Ajouter d'autres jeux si nécessaire -->
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                
                 <!-- Premier Picker d'équipe -->
                 <Picker x:Name="EquipePicker1" Title="Equipe 1"
                         ItemsSource="{Binding EquipesDisponibles}"

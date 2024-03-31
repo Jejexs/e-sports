@@ -6,7 +6,7 @@
         <Label Text="Consultation du Classement" FontSize="Large" HorizontalOptions="Center" />
 
         <!-- Filtrer par jeu -->
-        <Picker x:Name="JeuPicker" Title="Filtrer par jeu">
+        <Picker x:Name="JeuPicker" Title="Filtrer par jeu" Margin="0, 30">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>League of Legends</x:String>
@@ -16,15 +16,23 @@
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
-
+            
+        <FlexLayout JustifyContent="SpaceBetween">
+            <Label Text="Équipe" FontSize="Large"
+                   HorizontalOptions="Center" FontAttributes="Bold"/>
+            <Label Text="Points" FontSize="Large"
+                   HorizontalOptions="End" FontAttributes="Bold"/>
+        </FlexLayout>
+        <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,20" />
+        
         <ListView x:Name="ClassementListView">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding Nom}" FontSize="Large" />
-                            <Label Text="{Binding Points}" FontSize="Large" />
-                        </StackLayout>
+                        <FlexLayout JustifyContent="SpaceBetween">
+                            <Label Text="{Binding Nom}" FontSize="Large"/>
+                            <Label Text="{Binding Points}" FontSize="Large" HorizontalOptions="End"/>
+                        </FlexLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

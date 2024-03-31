@@ -1,0 +1,35 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.AdminViewJoueurs">
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Sélectionner des Joueurs" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,20" />
+
+            <ListView x:Name="lstJoueurs" ItemsSource="{Binding Joueurs}" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="0, 0, 0, 20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Nom}" VerticalOptions="Center" />
+                                    <Label Text="{Binding Prenom}" VerticalOptions="Center" Margin="10,0,0,0" />
+                                    <Label Text=" - " VerticalOptions="Center"/>
+                                    <Label Text="{Binding Pseudo}" VerticalOptions="Center" />
+                                    <Label Text="{Binding Equipe.nom}" VerticalOptions="Center" />
+                                </StackLayout>
+
+                                <Button Text="Editer" Clicked="OnEditerJoueurClicked" CommandParameter="{Binding}" Grid.Column="1" TextColor="White" Padding="20,20"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

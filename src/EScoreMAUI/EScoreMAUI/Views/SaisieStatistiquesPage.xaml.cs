@@ -47,6 +47,8 @@ namespace EScoreMAUI.Views
                 Equipe equipePerdante = (Equipe)PickerEquipePerdante.SelectedItem;
 
                 viewModel.AjouterStatistiques(equipeGagnante, equipePerdante);
+                
+                DisplayAlert("Succès", "Statistiques ajoutées avec succès", "OK");
             }
         }
     }

@@ -14,11 +14,16 @@ namespace EScoreMAUI.Views
             this.joueur = joueur;
 
             NomJoueurEntry.Text = joueur.Nom;
+            PrenomJoueurEntry.Text = joueur.Prenom;
+            PseudoJoueurEntry.Text = joueur.Pseudo;
         }
 
         private async void OnEnregistrerJoueurClicked(object sender, EventArgs e)
         {
             joueur.Nom = NomJoueurEntry.Text;
+            joueur.Prenom = PrenomJoueurEntry.Text;
+            joueur.Pseudo = PseudoJoueurEntry.Text;
+            
 
             await DisplayAlert("Succès", "Équipe modifiée avec succès", "OK");
 
