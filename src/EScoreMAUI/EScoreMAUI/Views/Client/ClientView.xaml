@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EScoreMAUI.Views.ClientView">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center">
+                <Label Text="Bienvenue sur l'application E-Score" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" />
+                
+                <!-- Bouton pour accéder à l'écran de consultation des Joueurs -->
+                <Button Text="Voir les Joueurs" Clicked="OnVoirLesJoueursClicked" HorizontalOptions="Center" />
+
+                <!-- Bouton pour accéder à l'écran de consultation des Equipes -->
+                <Button Text="Voir les Equipes" Clicked="OnVoirLesEquipesClicked" HorizontalOptions="Center" />
+
+                <!-- Bouton pour accéder à l'écran de consultation des Parties -->
+                <Button Text="Voir les Parties" Clicked="OnVoirLesPartiesClicked" HorizontalOptions="Center" />
+                
+                <!-- Bouton pour accéder à l'écran de Consultation du Classement -->
+                <Button Text="Consultation du Classement" Clicked="OnConsultationClassementClicked"
+                        HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

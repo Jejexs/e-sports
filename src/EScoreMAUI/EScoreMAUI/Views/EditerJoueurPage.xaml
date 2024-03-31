@@ -4,13 +4,14 @@
     
     <ContentPage.Content>
         <StackLayout Padding="20">
-            <Label Text="Édition de l'Équipe" FontSize="Large" HorizontalOptions="Center" />
-
-            <Entry Placeholder="Nom de l'équipe" x:Name="NomJoueurEntry" />
-
-            <Button Text="Enregistrer l'équipe" Clicked="OnEnregistrerJoueurClicked" />
-
-            <Button Text="Supprimer l'équipe" Clicked="OnSupprimerJoueurClicked" />
+            <Label Text="Edition du Joueur" FontSize="Large" HorizontalOptions="Center" />
+            <StackLayout Spacing="10">
+                <Entry Placeholder="Nom" x:Name="NomJoueurEntry" />
+                <Entry Placeholder="Prenom" x:Name="PrenomJoueurEntry" />
+                <Entry Placeholder="Pseudo" x:Name="PseudoJoueurEntry" />
+                
+                <Button Text="Enregistrer le Joueur" Clicked="OnEnregistrerJoueurClicked" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -12,7 +12,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Padding="10">
-                                <Label Text="{Binding Nom}" VerticalOptions="Center" />
+                                <Label Text="{Binding Nom}" VerticalOptions="Center" FontSize="Large"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

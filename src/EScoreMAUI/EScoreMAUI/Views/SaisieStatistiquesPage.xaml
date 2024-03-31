@@ -8,27 +8,40 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout Padding="20">
-            <Label Text="Saisie des statistiques" FontSize="Title" />
-            
-            <Label Text="{Binding Equipe1.Nom}" FontSize="Large" />
-            <Label Text="{Binding Equipe2.Nom}" FontSize="Large" />
-            
-            <Label Text="Équipe gagnante" />
-            <Picker x:Name="PickerEquipeGagnante"
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Text="Saisie des statistiques" FontSize="Title" Grid.Row="0" HorizontalOptions="Center" />
+
+            <FlexLayout Grid.Row="1" Margin="0,10" Direction="Row" JustifyContent="Center">
+                <Label Text="{Binding Equipe1.Nom}" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+                <Label Text="vs" FontSize="Large" HorizontalOptions="Center" Margin="10,0" />
+                <Label Text="{Binding Equipe2.Nom}" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+            </FlexLayout>
+
+            <Label Text="Équipe gagnante" FontSize="Large" Grid.Row="2" Margin="0,10,0,0" />
+            <Picker x:Name="PickerEquipeGagnante" Grid.Row="3" Margin="0,0,0,10"
                     Title="Sélectionner l'équipe gagnante"
                     ItemsSource="{Binding Equipes}"
                     ItemDisplayBinding="{Binding Nom}"
                     SelectedItem="{Binding EquipeGagnante}" />
-            <Label Text="Équipe perdante" />
 
-            <Picker x:Name="PickerEquipePerdante"
+            <Label Text="Équipe perdante" FontSize="Large" Grid.Row="4" Margin="0,10,0,0" />
+            <Picker x:Name="PickerEquipePerdante" Grid.Row="5" Margin="0,0,0,10"
                     Title="Sélectionner l'équipe perdante"
                     ItemsSource="{Binding Equipes}"
                     ItemDisplayBinding="{Binding Nom}"
                     SelectedItem="{Binding EquipePerdante}" />
-                    
-            <Button Text="Enregistrer" Clicked="OnAddStats" />
-        </StackLayout>
+
+            <Button Text="Enregistrer" Clicked="OnAddStats" Grid.Row="6" HorizontalOptions="FillAndExpand" Margin="0,10,0,0" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

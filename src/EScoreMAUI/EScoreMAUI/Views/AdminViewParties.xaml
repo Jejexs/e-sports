@@ -9,17 +9,25 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Sélectionner une partie" FontSize="Large" HorizontalOptions="Center" />
-            <ListView x:Name="PartiesListView" ItemsSource="{Binding Parties}" HasUnevenRows="True" ItemSelected="SetStatistiques">
+        <StackLayout Padding="20" HorizontalOptions="Center">
+            <Label Text="Sélectionner une partie" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold" />
+
+            <ListView x:Name="PartiesListView" ItemsSource="{Binding Parties}" HasUnevenRows="True"
+                      ItemSelected="SetStatistiques">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Equipe1.Nom}" FontSize="Large" />
-                                <Label Text="vs" FontSize="Large" />
-                                <Label Text="{Binding Equipe2.Nom}" FontSize="Large" />
-                                <Label Text="{Binding Jeu}" FontSize="Medium" />
+                                <!-- Affichage des noms des équipes -->
+                                <FlexLayout Grid.Row="1" Margin="0,10" Direction="Row" JustifyContent="Center">
+                                    <Label Text="{Binding Equipe1.Nom}" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+                                    <Label Text="vs" FontSize="Large" HorizontalOptions="Center" Margin="10,0" />
+                                    <Label Text="{Binding Equipe2.Nom}" FontSize="Large" HorizontalOptions="CenterAndExpand" />
+                                </FlexLayout>
+
+                                <Label Text="{Binding Date}" FontSize="Medium" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Jeu}" FontSize="Medium" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Lieu}" FontSize="Medium" HorizontalOptions="Center"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

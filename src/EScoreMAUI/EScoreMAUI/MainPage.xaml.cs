@@ -19,57 +19,15 @@ namespace EScoreMAUI
         {
             InitializeComponent();
         }
-
-        // Méthode pour gérer le clic sur le bouton de la saisie des joueurs
-        private async void OnSaisieDesJoueursClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SaisieDesJoueursPage());
-        }
-
-        private async void OnSaisieDesEquipesClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SaisieDesEquipesPage());
-        }
-
-        // Méthode pour gérer le clic sur le bouton de la saisie des parties et statistiques
-        private async void OnSaisieDesPartiesClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SaisieDesPartiesPage());
-        }
         
-        // Méthode pour gérer le clic sur le bouton de d'affichage des parties côté admin
-        private async void OnViewAdminPartiesClicked(object sender, EventArgs e)
+        private async void OnViewAdminClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AdminViewParties());
-        }
-        
-        private async void OnViewAdminEquipesClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AdminViewEquipes());
+            await Navigation.PushAsync(new AdminView());
         }
 
-        // Méthode pour gérer le clic sur le bouton de la consultation du classement
-        private async void OnConsultationClassementClicked(object sender, EventArgs e)
+        private async void OnViewClientClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ConsultationClassementPage());
-        }
-
-        // Méthode pour gérer le clic sur le bouton de la consultation des joueurs
-        private async void OnVoirLesJoueursClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ConsultationJoueursPage());
-        }
-
-        // Méthode pour gérer le clic sur le bouton de la consultation des équipes
-        private async void OnVoirLesEquipesClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ConsultationEquipesPage());
-        }
-
-        // Méthode pour gérer le clic sur le bouton de la consultation des parties
-        private async void OnVoirLesPartiesClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ConsultationPartiesPage());
+            await Navigation.PushAsync(new ClientView());
         }
     }
 }

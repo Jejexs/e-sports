@@ -3,16 +3,23 @@
              x:Class="EScoreMAUI.Views.AdminViewEquipes">
     
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Consultation des Equipes" FontSize="Large" HorizontalOptions="Center" />
-            <ListView x:Name="lstEquipes" ItemsSource="{Binding Equipes}">
+        <StackLayout Padding="20">
+            <Label Text="Edition des Equipes" FontSize="Large" HorizontalOptions="CenterAndExpand" Margin="0,0,0,20" />
+
+            <ListView x:Name="lstEquipes" ItemsSource="{Binding Equipes}" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="10">
-                                <Label Text="{Binding Nom}" VerticalOptions="Center" />
-                                <Button Text="Editer" Clicked="OnEditerEquipeClicked" CommandParameter="{Binding}" />
-                            </StackLayout>
+                            <Grid Margin="0, 0, 0, 20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Text="{Binding Nom}" VerticalOptions="Center" Grid.Column="0" />
+
+                                <Button Text="Editer" Clicked="OnEditerEquipeClicked" CommandParameter="{Binding}" Grid.Column="1" TextColor="White" Padding="20, 20"/>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

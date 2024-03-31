@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EScoreMAUI.MainPage">
@@ -8,32 +9,29 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
+            
+            <Label Text="Bienvenue sur E-Score, votre destination ultime pour suivre les scores en direct et les dernières actualités de l'e-sport!" FontSize="36" FontAttributes="Bold" Margin="20,20,20,10" 
+                   HorizontalTextAlignment="Center"/>
 
-            <!-- Bouton pour accéder à l'écran de Saisie des Joueurs -->
-            <Button Text="Saisie des Joueurs" Clicked="OnSaisieDesJoueursClicked" HorizontalOptions="Center" />
+            <Image Source="escore.webp" HeightRequest="600"
+                   Aspect="AspectFit"/>
+
+            <Label Text="Avec notre application facile à utiliser, restez connecté avec l'univers de l'e-sport comme jamais auparavant. Que vous soyez fan de MOBA, FPS, RTS, ou de tout autre genre, nous couvrons une large gamme de compétitions à travers le monde." 
+                                           HorizontalTextAlignment="Center" 
+                                           Margin="20, 10, 20, 0"/>
+
+            <Label Text="Recevez des mises à jour en temps réel sur les scores, les classements, et bien plus encore. Découvrez les profils des équipes, les statistiques des joueurs, et plongez dans des analyses détaillées pour ne rien manquer de vos jeux et tournois favoris." 
+                   HorizontalTextAlignment="Center" 
+                   Margin="20, 10, 20, 0"/>
+            <FlexLayout Direction="Row"
+                        AlignItems="Center"
+                        JustifyContent="SpaceEvenly" Margin="0, 30, 0, 100">
+                <Button Text="Vue Administrateur" Clicked="OnViewAdminClicked" HorizontalOptions="Center" />
             
-            <!-- Bouton pour accéder à l'écran de Saisie des Equipes -->
-            <Button Text="Saisie des Equipes" Clicked="OnSaisieDesEquipesClicked" HorizontalOptions="Center" />
+                <Button Text="Vue Client" Clicked="OnViewClientClicked" HorizontalOptions="Center" />
+                     
+            </FlexLayout>
             
-            <!-- Bouton pour accéder à l'écran de Saisie des Parties et Statistiques -->
-            <Button Text="Saisie des Parties" Clicked="OnSaisieDesPartiesClicked" HorizontalOptions="Center" />
-            
-            <!-- Bouton pour accéder à l'écran de Saisie des Statistiques -->
-            <Button Text="Saisie des Statistiques" Clicked="OnViewAdminPartiesClicked" HorizontalOptions="Center" />
-            
-            <Button Text="Gérer les équipes" Clicked="OnViewAdminEquipesClicked" HorizontalOptions="Center" />
-            
-            <!-- Bouton pour accéder à l'écran de Consultation du Classement -->
-            <Button Text="Consultation du Classement" Clicked="OnConsultationClassementClicked" HorizontalOptions="Center" />
-            
-            <!-- Bouton pour accéder à l'écran de consultation des Joueurs -->
-            <Button Text="Voir les Joueurs" Clicked="OnVoirLesJoueursClicked" HorizontalOptions="Center" />
-            
-            <!-- Bouton pour accéder à l'écran de consultation des Equipes -->
-            <Button Text="Voir les Equipes" Clicked="OnVoirLesEquipesClicked" HorizontalOptions="Center" />
-            
-            <!-- Bouton pour accéder à l'écran de consultation des Parties -->
-            <Button Text="Voir les Parties" Clicked="OnVoirLesPartiesClicked" HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>

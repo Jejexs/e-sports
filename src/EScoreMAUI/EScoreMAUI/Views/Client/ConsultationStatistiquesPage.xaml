@@ -3,23 +3,51 @@
              x:Class="EScoreMAUI.Views.ConsultationStatistiquesPage"
              xmlns:viewmodels="clr-namespace:EScoreMAUI.ViewModels">
 
+    <!-- ViewModel -->
     <ContentPage.BindingContext>
         <viewmodels:StatistiquesViewModel />
     </ContentPage.BindingContext>
 
+    <!-- Content -->
     <ContentPage.Content>
-        <StackLayout Padding="20">
-            <Label Text="Statistiques" FontSize="Title" />
-            <!-- Afficher le nom des équipes (équipe1 et équipe2) et l'id de la partie -->
-            <Label Text="{Binding Partie.Id}" FontSize="Large" />
-            <Label Text="{Binding Equipe1.Nom}" FontSize="Large" />
-            <Label Text="{Binding Equipe2.Nom}" FontSize="Large" />
-            <!-- Afficher les points marqués par chaque équipe -->
-            <Label Text="{Binding Equipe1.Points}" FontSize="Large" />
-            <Label Text="{Binding Equipe2.Points}" FontSize="Large" />
-            <!-- Afficher le nom de l'équipe gagnante et perdante -->
-            <Label Text="{Binding NomEquipeGagnante}" FontSize="Large" />
-            <Label Text="{Binding NomEquipePerdante}" FontSize="Large" />
-        </StackLayout>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Start">
+            <Label Text="Statistiques de la partie" FontSize="Title"
+                   HorizontalOptions="Center" />
+            
+            <FlexLayout JustifyContent="Center">
+                <Label Text="{Binding Equipe1.Nom}" FontSize="Large"
+                       HorizontalOptions="Center" FontAttributes="Bold" />
+                <Label Text=" vs " FontSize="Large" FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+                <Label Text="{Binding Equipe2.Nom}" FontSize="Large"
+                       HorizontalOptions="Center" FontAttributes="Bold"/>
+            </FlexLayout>
+            
+            <FlexLayout JustifyContent="SpaceBetween">
+                <Label Text="Équipe" FontSize="Large"
+                       HorizontalOptions="Center" FontAttributes="Bold"/>
+                <Label Text="Points" FontSize="Large"
+                       HorizontalOptions="Center" FontAttributes="Bold"/>
+            </FlexLayout>
+            
+            <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand" />
+
+            
+            <FlexLayout JustifyContent="SpaceBetween">
+                <Label Text="{Binding Equipe1.Nom}" FontSize="Large"
+                       HorizontalOptions="Center" />
+                <Label Text="{Binding Equipe1.Points}" FontSize="Large"
+                       HorizontalOptions="Center" />
+            </FlexLayout>
+            <FlexLayout JustifyContent="SpaceBetween">
+                <Label Text="{Binding Equipe2.Nom}" FontSize="Large"
+                       HorizontalOptions="Center" />
+                <Label Text="{Binding Equipe2.Points}" FontSize="Large"
+                       HorizontalOptions="Center" />
+            </FlexLayout>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
